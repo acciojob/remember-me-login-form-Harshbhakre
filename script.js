@@ -1,7 +1,7 @@
 window.onload = () => {
   onSubmit();
 };
-
+  
 function submitFunc(event) {
   if(event) event.preventDefault();
 
@@ -26,8 +26,8 @@ btn.setAttribute('id', "existing");
 btn.innerHTML = "Login as existing user";
 
 function onSubmit() {
-  if (localStorage.getItem("username")) {	
-    document.body.appendChild(btn);
+  if(localStorage.getItem("username")) {	
+    document.getElementById("existing").style.display = "block";
   }
 }
 
