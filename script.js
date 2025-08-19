@@ -10,8 +10,9 @@ if(checkbox){
 	alert("Logged in as " + localStorage.getItem("Username"));    
 window.location.reload();
 }else{
+	
+window.location.reload();
 	alert("Logged in as " +ipU);
-	localStorage.clear()
 }
 }
 let btn= document.createElement("button")
