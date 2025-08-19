@@ -1,28 +1,36 @@
-window.onload = onSubmit;
-function submitFunc() {  
-let ipU = document.querySelector("#username").value
-let ipP = document.querySelector("#password").value
-let checkbox = document.querySelector("#checkbox").checked;
-if(checkbox){ 
-	localStorage.clear()
-	localStorage.setItem("Username",ipU)
-	localStorage.setItem("Password",ipP)
-	alert("Logged in as " + localStorage.getItem("Username"));    
-window.location.reload();
-}else{
-	
-window.location.reload();
-	alert("Logged in as " +ipU);
+window.onload = () => {
+  onSubmit();
+};
+
+function submitFunc(event) {
+  if(event) event.preventDefault();
+
+  let ipU = document.querySelector("#username").value;
+  let ipP = document.querySelector("#password").value;
+  let checkbox = document.querySelector("#checkbox").checked;
+
+  if (checkbox) { 
+    localStorage.clear();
+    localStorage.setItem("username", ipU);
+    localStorage.setItem("password", ipP);
+    alert("Logged in as " + localStorage.getItem("username"));
+    window.location.reload();
+  } else {
+    alert("Logged in as " + ipU);
+    window.location.reload();
+  }
 }
-}
-let btn= document.createElement("button")
-	btn.setAttribute('id',"existing")
-    btn.innerHTML = "Login as existing user"
+
+let btn = document.createElement("button");
+btn.setAttribute('id', "existing");
+btn.innerHTML = "Login as existing user";
+
 function onSubmit() {
-	if(localStorage.getItem("Username")){	
+  if (localStorage.getItem("username")) {	
     document.body.appendChild(btn);
-	}
+  }
 }
-btn.addEventListener("click",()=>{
-	alert("Logged in as " + localStorage.getItem("Username"))
-})
+
+btn.addEventListener("click", () => {
+  alert("Logged in as " + localStorage.getItem("username"));
+});
